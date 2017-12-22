@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Topic
+ * Post
  *
- * @ORM\Table(name="topic")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\TopicRepository")
+ * @ORM\Table(name="post")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\PostRepository")
  */
-class Topic
+class Post
 {
     /**
      * @var int
@@ -20,20 +20,6 @@ class Topic
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    /**
-     * @var Collection
-     *
-     * @ORM\ManyToOne(targetEntity="Forum", inversedBy="topics")
-     * @ORM\JoinColumn(name="forum_id", referencedColumnName="id")
-     */
-    private $forum;
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="title", type="string", length=255)
-     */
-    private $title;
 
     /**
      * @var \DateTime
@@ -49,6 +35,13 @@ class Topic
      */
     private $author;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="content", type="string", length=255)
+     */
+    private $content;
+
 
     /**
      * Get id
@@ -61,35 +54,11 @@ class Topic
     }
 
     /**
-     * Set title
-     *
-     * @param string $title
-     *
-     * @return Topic
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * Get title
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
      * Set creation
      *
      * @param \DateTime $creation
      *
-     * @return Topic
+     * @return Post
      */
     public function setCreation($creation)
     {
@@ -113,7 +82,7 @@ class Topic
      *
      * @param string $author
      *
-     * @return Topic
+     * @return Post
      */
     public function setAuthor($author)
     {
@@ -133,26 +102,27 @@ class Topic
     }
 
     /**
-     * Set forum
+     * Set content
      *
-     * @param \AppBundle\Entity\Forum $forum
+     * @param string $content
      *
-     * @return Topic
+     * @return Post
      */
-    public function setForum(\AppBundle\Entity\Forum $forum = null)
+    public function setContent($content)
     {
-        $this->forum = $forum;
+        $this->content = $content;
 
         return $this;
     }
 
     /**
-     * Get forum
+     * Get content
      *
-     * @return \AppBundle\Entity\Forum
+     * @return string
      */
-    public function getForum()
+    public function getContent()
     {
-        return $this->forum;
+        return $this->content;
     }
 }
+

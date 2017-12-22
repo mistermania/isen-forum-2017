@@ -21,6 +21,15 @@ class Topic
      */
     private $id;
 
+
+    /**
+     * @var Collection
+     *
+     * @ORM\OneToMany(targetEntity="Post", mappedBy="topic", cascade={"remove"})
+     */
+    private $posts;
+
+
     /**
      * @var Collection
      *
@@ -154,5 +163,39 @@ class Topic
     public function getForum()
     {
         return $this->forum;
+    }
+
+    /**
+     * Add post
+     *
+     * @param \AppBundle\Entity\Post $posts
+     *
+     * @return Topic
+     */
+    public function addPost(\AppBundle\Entity\Post $posts)
+    {
+        $this->posts[] = $posts;
+
+        return $this;
+    }
+
+    /**
+     * Remove post
+     *
+     * @param \AppBundle\Entity\Post $posts
+     */
+    public function removeTopic(\AppBundle\Entity\Post $posts)
+    {
+        $this->posts->removeElement($posts);
+    }
+
+    /**
+     * Get posts
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPosts()
+    {
+        return $this->posts;
     }
 }

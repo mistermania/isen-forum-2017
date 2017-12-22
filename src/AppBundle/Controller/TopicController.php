@@ -14,12 +14,16 @@ use Symfony\Component\HttpFoundation\Request;
 class TopicController extends Controller
 {
     /**
-     * @Route("/{id}", requirements={"id": "\d+"})
+     * @Route("/{id}",requirements={"id":"\d+"},name="app_topic_index")
+     * @param int $forum_id
+     * @param int $id
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction(int $forum_id, int $id)
     {
         return $this->render('AppBundle:Topic:index.html.twig', array(
-            // ...
+            'forum'=>$this->getDoctrine()->getRepository(Forum::class)->find($forum_id),
+            'topic'=>$this->getDoctrine()->getRepository(Topic::class)->find($id)
         ));
     }
 
@@ -64,6 +68,20 @@ class TopicController extends Controller
                 ->find($id)
             // ...
         ));
+    }
+    /**
+     * @Route("/remove/{id}",requirements={"id": "\d+"}, name="app_topic_remove")
+     */
+    public function removeAction(int $forum_id, int $id){
+        $post = $this->getDoctrine()->getRepository(Topic::class)->find($id);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($post);
+        $em->flush();
+
+        return $this->redirectToRoute('app_forum_show', [
+            'id' => $forum_id,
+        ]);
     }
 
 }
