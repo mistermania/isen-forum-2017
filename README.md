@@ -1,72 +1,90 @@
-Symfony Standard Edition
-========================
+<p align="center">
+  <a href="http://materializecss.com/">
+    <img src="http://materializecss.com/res/materialize.svg" width="150">
+  </a>
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony
-application that you can use as the skeleton for your new applications.
+  <h3 align="center">MaterializeCSS</h3>
 
-For details on how to download and get started with Symfony, see the
-[Installation][1] chapter of the Symfony Documentation.
+  <p align="center">
+    Materialize, a CSS Framework based on material design.
+    <br>
+    <a href="http://materializecss.com/"><strong>-- Browse the docs --</strong></a>
+    <br>
+    <br>
+    <a href="https://travis-ci.org/Dogfalo/materialize">
+      <img src="https://travis-ci.org/Dogfalo/materialize.svg?branch=master" alt="Travis CI badge">
+    </a>
+    <a href="https://badge.fury.io/js/materialize-css">
+      <img src="https://badge.fury.io/js/materialize-css.svg" alt="npm version badge">
+    </a>
+    <a href="https://cdnjs.com/libraries/materialize">
+      <img src="https://img.shields.io/cdnjs/v/materialize.svg" alt="CDNJS version badge">
+    </a>
+    <a href="https://david-dm.org/Dogfalo/materialize">
+      <img src="https://david-dm.org/Dogfalo/materialize/status.svg" alt="dependencies Status badge">
+      </a>
+    <a href="https://david-dm.org/Dogfalo/materialize#info=devDependencies">
+      <img src="https://david-dm.org/Dogfalo/materialize/dev-status.svg" alt="devDependency Status badge">
+    </a>
+    <a href="https://gitter.im/Dogfalo/materialize">
+      <img src="https://badges.gitter.im/Join%20Chat.svg" alt="Gitter badge">
+    </a>
+</p>
 
-What's inside?
---------------
+## Table of Contents
+- [Quickstart](#quickstart)
+- [Documentation](#documentation)
+- [Supported Browsers](#supported-browsers)
+- [Changelog](#changelog)
+- [Testing](#testing)
+- [Contributing](#contributing)
+- [Copyright and license](#copyright-and-license)
 
-The Symfony Standard Edition is configured with the following defaults:
+## Quickstart:
+Read the [getting started guide](http://materializecss.com/getting-started.html) for more information on how to use materialize.
 
-  * An AppBundle you can use to start coding;
+- [Download the latest release](https://github.com/Dogfalo/materialize/releases/latest) of materialize directly from GitHub.
+- Clone the repo: `git clone https://github.com/Dogfalo/materialize.git`
+- Include the files via [cdnjs](https://cdnjs.com/libraries/materialize). More [here](http://materializecss.com/getting-started.html).
+- Install with [npm](https://www.npmjs.com): `npm install materialize-css`
+- Install with [Bower](https://bower.io): `bower install materialize`
+- Install with [Atmosphere](https://atmospherejs.com): `meteor add materialize:materialize`
 
-  * Twig as the only configured template engine;
+## Documentation
+The documentation can be found at <http://materializecss.com>. To run the documentation locally on your machine, you need [Node.js](https://nodejs.org/en/) installed on your computer.
 
-  * Doctrine ORM/DBAL;
+### Running documentation locally
+Run these commands to set up the documentation:
 
-  * Swiftmailer;
+```bash
+git clone https://github.com/Dogfalo/materialize
+cd materialize
+npm install
+```
 
-  * Annotations enabled for everything.
+Then run `grunt monitor` to compile the documentation. When it finishes, open a new browser window and navigate to `localhost:8000`. We use [BrowserSync](https://www.browsersync.io/) to display the documentation.
 
-It comes pre-configured with the following bundles:
+### Documentation for previous releases
+Previous releases and their documentation are available for [download](https://github.com/Dogfalo/materialize/releases).
 
-  * **FrameworkBundle** - The core Symfony framework bundle
+## Supported Browsers:
+Materialize is compatible with:
 
-  * [**SensioFrameworkExtraBundle**][6] - Adds several enhancements, including
-    template and routing annotation capability
+- Chrome 35+
+- Firefox 31+
+- Safari 7+
+- Opera
+- Edge
+- IE 10+
 
-  * [**DoctrineBundle**][7] - Adds support for the Doctrine ORM
+## Changelog
+For changelogs, check out [the Releases section of materialize](https://github.com/Dogfalo/materialize/releases) or the [CHANGELOG.md](CHANGELOG.md).
 
-  * [**TwigBundle**][8] - Adds support for the Twig templating engine
+## Testing
+We use Jasmine as our testing framework and we're trying to write a robust test suite for our components. If you want to help, [here's a starting guide on how to write tests in Jasmine](CONTRIBUTING.md#jasmine-testing-guide).
 
-  * [**SecurityBundle**][9] - Adds security by integrating Symfony's security
-    component
+## Contributing
+Check out the [CONTRIBUTING document](CONTRIBUTING.md) in the root of the repository to learn how you can contribute. You can also browse the [help-wanted](https://github.com/Dogfalo/materialize/labels/help-wanted) tag in our issue tracker to find things to do.
 
-  * [**SwiftmailerBundle**][10] - Adds support for Swiftmailer, a library for
-    sending emails
-
-  * [**MonologBundle**][11] - Adds support for Monolog, a logging library
-
-  * **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
-    the web debug toolbar
-
-  * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
-    configuring and working with Symfony distributions
-
-  * [**SensioGeneratorBundle**][13] (in dev env) - Adds code generation
-    capabilities
-
-  * [**WebServerBundle**][14] (in dev env) - Adds commands for running applications
-    using the PHP built-in web server
-
-  * **DebugBundle** (in dev/test env) - Adds Debug and VarDumper component
-    integration
-
-All libraries and bundles included in the Symfony Standard Edition are
-released under the MIT or BSD license.
-
-Enjoy!
-
-[1]:  https://symfony.com/doc/3.3/setup.html
-[6]:  https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/index.html
-[7]:  https://symfony.com/doc/3.3/doctrine.html
-[8]:  https://symfony.com/doc/3.3/templating.html
-[9]:  https://symfony.com/doc/3.3/security.html
-[10]: https://symfony.com/doc/3.3/email.html
-[11]: https://symfony.com/doc/3.3/logging.html
-[13]: https://symfony.com/doc/current/bundles/SensioGeneratorBundle/index.html
-[14]: https://symfony.com/doc/current/setup/built_in_web_server.html
+## Copyright and license
+Code copyright 2017 Materialize. Code released under the MIT license.
